@@ -5,7 +5,7 @@
 
 module.exports = {
   // baseURL
-  baseURL: 'http://10.128.19.168:8022',
+  baseURL: '',
   // 请求超时
   requestTimeout: 50000,
   // 请求成功状态码
