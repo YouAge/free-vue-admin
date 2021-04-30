@@ -3,10 +3,10 @@
   <div class="free-logo">
     <router-link to="/">
       <template v-if="isCollapse">
-        <div class="mes-logo-font">JABIL</div>
+        <div class="mes-logo-font">FREE</div>
       </template>
       <template v-else>
-        <img src="../../../assets/imges/layot/logo-white.png" />
+<!--        <img src="../../../assets/imges/layot/logo-white.png" />-->
       </template>
     </router-link>
   </div>
