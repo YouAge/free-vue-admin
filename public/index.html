@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="keywords" content="free-vue-admin,后台系统,管理后台,后台模版,vue后台,vue-admin,vue-element-admin,vue-admin-template">
+    <meta name="description" content="free-vue-admin 是一款开箱即用的 Vue 中后台管理系统模版">
+    <style>
+      .free-first-loading{
+        position: absolute;
+        z-index: 10000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        user-select: none;
+        color: #736477;
+        background-color: snow;
+      }
+      .free-first-loading .loading{
+        position: relative;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        color: inherit;
+        vertical-align: middle;
+        pointer-events: none;
+        transform: scale(3);
+      }
+      .free-first-loading .loading::before,
+      .free-first-loading .loading::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: currentColor;
+        left: 50%;
+        right: 0;
+        top: 0;
+        bottom: 50%;
+        box-shadow: -0.5em 0 0 currentColor;
+        animation: loading 1s linear infinite;
+      }
+      .free-first-loading .loading::after {
+        top: 50%;
+        bottom: 0;
+        animation-delay: 0.25s;
+      }
+      @keyframes loading {
+        0%,
+        100% {
+          box-shadow: -0.5em 0 0 transparent;
+          background-color: currentColor;
+        }
+        50% {
+          box-shadow: -0.5em 0 0 currentColor;
+          background-color: transparent;
+        }
+      }
+      .free-first-loading .text {
+        font-size: 24px;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+        <div class='free-first-loading'>
+          <div class='loading'></div>
+          <div class="text"><%= htmlWebpackPlugin.options.title %>载入中…</div>
+        </div>
+    </div>
+    <!-- built files will be auto injected -->
+  <script>
+    // 开机动画加载
+    if (window.location.hostname !== 'localhost') {
+      var _hmt = _hmt || []
+      ;(function () {
+        var hm = document.createElement('script')
+        hm.src = 'https://hm.baidu.com/hm.js?7174bade1219f9cc272e7978f9523fc8'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+      })()
+    }
+  </script>
+  </body>
+</html>
