@@ -25,7 +25,7 @@
         <el-checkbox v-model="form.remember">记住我</el-checkbox>
         <el-button :loading="loading" type="primary" style="width: 100%;" @click.native.prevent="handleLogin">登 录</el-button>
         <div style="margin-top: 20px; margin-bottom: -10px; color: #666; font-size: 14px; text-align: center; font-weight: bold;">
-          <span style="margin-right: 5px;">演示帐号一键登录：</span>
+          <span style="margin-right: 5px;">账号一键登录：</span>
           <el-button type="danger" size="mini" @click="testAccount('admin')">admin</el-button>
           <el-button type="danger" size="mini" plain @click="testAccount('test')">test</el-button>
         </div>
