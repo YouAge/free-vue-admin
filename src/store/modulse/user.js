@@ -59,9 +59,7 @@ export default {
       }
       // 处理数据
       console.log(data)
-      console.log(data.role[0].menus)
-      console.log(hierarchy(data.role[0].menus))
-      dispatch('permission/FETCH_PERMISSION', data.role[0].menus, {
+      dispatch('permission/FETCH_PERMISSION', data.menus, {
         root: true
       })
     }

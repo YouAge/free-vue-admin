@@ -12,5 +12,5 @@ export async function login(user) {
 }
 
 export async function getUserInfo(token) {
-  return api.get('/admin/user_info', {params: {[TOKEN_NAME]: token}})
+  return api.post('/user-info', token)
 }

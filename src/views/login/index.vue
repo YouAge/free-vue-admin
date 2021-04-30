@@ -10,8 +10,8 @@
         </div>
         <div>
           <el-form-item prop="account">
-            <el-input ref="name" v-model="form.user" placeholder="用户名" type="text" tabindex="1" auto-complete="on">
-              <free-icon slot="prefix" name="user" />
+            <el-input ref="name" v-model="form.username" placeholder="用户名" type="text" tabindex="1" auto-complete="on">
+              <free-icon slot="prefix" name="username" />
             </el-input>
           </el-form-item>
           <el-form-item prop="password">
@@ -45,12 +45,12 @@
       return {
         title: process.env.VUE_APP_TITLE,
         form: {
-          user: localStorage.login_account || '2681781',
+          username: localStorage.login_account || '2681781',
           password: '123456',
           remember: !!localStorage.login_account
         },
         rules: {
-          user: [
+          username: [
             { required: true, trigger: 'blur', message: '请输入用户名' }
           ],
           password: [
