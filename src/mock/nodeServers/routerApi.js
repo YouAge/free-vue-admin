@@ -19,8 +19,9 @@ router.post('/login', async (ctx, next) => {
 })
 
 router.post('/user-info', async (ctx, next) => {
-  const token = ctx.request.body.freeToken || ''
+  const token = ctx.request.body.token || ''
   if (token) {
+    console.log(options(control['admin']))
     ctx.response.body = options(control['admin'], 1, '请求成功')
   } else {
     ctx.response.body = options({}, 0, '验证失败')

@@ -11,21 +11,6 @@ import layout from '@/layout'
  * }
  * */
 export const baseRoutes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: layout,
-  //   redirect: 'home',
-  //   children: [
-  //     // 主页
-  //     {
-  //       path: 'home',
-  //       meta: {icon: 'ios-home-outline', title: '首页', requiresAuth: true},
-  //       name: 'Home',
-  //       component: () => import('@/views/Home')
-  //     }
-  //   ]
-  // },
   {
     path: '/login',
     name: 'login',
@@ -69,52 +54,28 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/cnc',
-    name: 'oee',
+    path: '/free',
+    name: 'free',
     component: layout,
-    meta: {icon: 'el-icon-s-flag', title: 'OEE'},
+    meta: {icon: 'el-icon-s-flag', title: 'FREE组件'},
     children: [
       {
-        path: 'cnc_oee',
-        name: 'cnc_oee',
+        path: 'menu-one',
+        name: 'menu-one',
         redirect: 'cnc_oee/topx',
-        meta: {icon: 'ios-navigate', title: 'cnc_oee'},
+        meta: {icon: 'ios-navigate', title: '菜单1-1'},
         children: [
           {
-            path: 'topx',
-            name: 'topx',
+            path: 'menu-one-two',
+            name: 'menu-one-two',
             component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: 'topx'}
+            meta: {icon: 'ios-navigate', title: '菜单1-1-2'}
           },
           {
-            path: 'topx2',
-            name: 'topx2',
+            path: 'menu-one-three',
+            name: 'menu-one-three',
             component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: 'topx2'}
-          },
-          {
-            path: 'topx3',
-            name: 'topx3',
-            component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: 'topx3'}
-          },
-          {
-            path: 'topx4',
-            name: 'topx4',
-            component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: 'topx4'}
-          },
-          {
-            path: 'topx5',
-            name: 'topx5',
-            component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: 'topx5'}
-          },
-          {
-            path: 'topx6',
-            name: 'topx6',
-            component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: 'topx6'}
+            meta: {icon: 'ios-navigate', title: '菜单1-1-3'}
           }
         ]
       },

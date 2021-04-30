@@ -12,5 +12,5 @@ export async function login(user) {
 }
 
 export async function getUserInfo(token) {
-  return api.post('/user-info', token)
+  return api.post('/user-info', {token})
 }

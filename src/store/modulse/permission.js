@@ -37,6 +37,7 @@ export default {
     async FETCH_PERMISSION({commit, state}, currentMenus) {
       // const newMenus = hierarchy(currentMenus)
       // 对比路由保留可用路由
+      console.log('路由', currentMenus)
       const menus = recursionRouter(currentMenus, asyncRoutes)
       commit('SET_MENU', menus)
       menus.push(lastRoute)

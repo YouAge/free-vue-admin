@@ -12,7 +12,7 @@ module.exports = {
   successCode: [1, 200, 0],
   // 默认请求头设置
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    // 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
   },
 
   // set-token 缓存Name
