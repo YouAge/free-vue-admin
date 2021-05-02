@@ -25,6 +25,7 @@
 
 <style scoped lang="less">
   .app-container {
+    width: 100%;
     color: rgba(0, 0, 0, 0.45);
     .free-app-height {
       min-height: @base-app-main-height;

@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "git": "start ./push.sh"
+    "git": "start ./push.sh",
+    "koa": "node ./src/mock/nodeServers/app.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

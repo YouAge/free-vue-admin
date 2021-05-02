@@ -10,7 +10,7 @@
       :background-color="variables['menu-background']"
       :text-color="variables['menu-color']"
       :active-text-color="variables['menu-color-active']"
-      :collapse="isCollapse">
+      :collapse="isCollapse" mode="vertical">
         <template  v-for="item in sidebarMenu">
           <sidebar-item :parent-item="item" :key="item.name" :base-path='item.path'/>
         </template>

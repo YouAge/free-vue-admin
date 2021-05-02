@@ -15,15 +15,16 @@
       </el-col>
       <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="right-panel">
-          <div style="color: #2f3447">
-            <!--            <Icon type="md-refresh" />-->
+          <div style="color: #2f3447" class="icon-fun">
+            <free-icon name="full-screen" />
+            <free-icon name="translate"/>
+            <set-theme-bar />
           </div>
 
           <!--          // user-hom-->
           <el-dropdown @command="handleCommand">
             <span class="avatar-dropdown">
               <el-avatar class="user-avatar" :src="avatar"></el-avatar>
-              <!--      <img class="user-avatar" :src="avatar" alt="" />-->
               <div class="user-name">
                 {{ username }}
                 <i class="el-icon-arrow-down el-icon--right"></i>
@@ -46,12 +47,14 @@
 <script>
   import FreeBreadcrumb from '@/layout/components/navbar/freeBreadcrumb'
   import { mapActions, mapGetters } from 'vuex'
+  import FreeIcon from "@/components/free-icon";
+  import SetThemeBar from "@/layout/components/setThemeBar";
   export default {
     name: 'navnar',
-    components: { FreeBreadcrumb },
+    components: {SetThemeBar, FreeIcon, FreeBreadcrumb },
     data() {
       return {
-        avatar: '',
+        avatar: require('@/assets/logo.png'),
         username: 'admin',
       }
     },
@@ -132,6 +135,15 @@
       align-items: center;
       justify-content: flex-end;
       height: @base-nav-bar-height;
+      .icon-fun{
+        display: flex;
+        >div,
+        >svg{
+          margin-right: 15px;
+          font-size: 18px;
+          cursor: pointer;
+        }
+      }
       > div {
         margin-left: 10px;
         font-weight: bolder;

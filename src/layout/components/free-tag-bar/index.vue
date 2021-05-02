@@ -164,7 +164,7 @@
     padding-left: @base-padding;
     user-select: none;
     background: @base-color-white;
-    border-top: 1px solid #f6f6f6;
+    border-top: 1px solid #ECECEC;
     ::v-deep {
       .fold-unfold {
         margin-right: @base-padding;
