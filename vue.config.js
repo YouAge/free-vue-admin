@@ -5,11 +5,10 @@
 
 const path = require('path')
 
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, '.', dir)
 }
-
-const {title} = require('./src/config/theme.config')
+const { title } = require('./src/config/theme.config')
 
 process.env.VUE_APP_TITLE = title || 'free-vue-admin'
 
@@ -54,7 +53,7 @@ module.exports = {
 }
 
 // 配置全局的less的变量使用， 先安装 npm install style-resources-loader -D
-function addStyleResource(rule) {
+function addStyleResource (rule) {
   rule
     .use('style-resource')
     .loader('style-resources-loader')

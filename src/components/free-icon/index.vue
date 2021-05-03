@@ -6,18 +6,18 @@
 </template>
 
 <script>
-  export default {
-    name: 'FreeIcon',
-    props: {
-      name: {
-        type: String,
-        required: true
-      }
+export default {
+  name: 'FreeIcon',
+  props: {
+    name: {
+      type: String,
+      required: true
     }
   }
+}
 </script>
 
-<style scoped>
+<style scoped lang="less">
   .svg-icon {
     width: 1em;
     height: 1em;

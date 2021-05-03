@@ -11,7 +11,7 @@
       <el-tab-pane
         v-for="item in activeRouteTag"
         :key="item.path"
-        :label="item.meta.title"
+        :label="$t(item.meta.title)"
         :name="item.name"
         :closable="!isClingy(item)"
       ></el-tab-pane>
@@ -48,107 +48,105 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-  import {setRouterTag,getRouterTag} from '@/utils/handling'
-  export default {
-    name: 'freeTagBar',
-    data() {
-      return {
-        tabActive: 'home',
-        activeRouteTag: getRouterTag(),
-      }
-    },
-    watch:{
-      $route: {
-        handler(newRoute){
-          console.log('shuj',this.$route)
-          // 初始化，固定url
-          this.initRouterTag();
-          const { name, query, params, meta, path } = newRoute
-          this.addTagNavList({ name, query, params, meta ,path})
-        },
-        immediate: true,
-      }
-    },
-    computed:{
-      ...mapState({
-        sidebarMenu:state => state.permission.sidebarMenu,
-        // activeRouteTag:state => state.permission.activeRouteTag
-      })
-    },
-    methods: {
-      initRouterTag(){
-
+import { mapState } from 'vuex'
+import { setRouterTag, getRouterTag } from '@/utils/handling'
+export default {
+  name: 'freeTagBar',
+  data () {
+    return {
+      tabActive: 'home',
+      activeRouteTag: getRouterTag()
+    }
+  },
+  watch: {
+    $route: {
+      handler (newRoute) {
+        console.log('shuj', this.$route)
+        // 初始化，固定url
+        this.initRouterTag()
+        const { name, query, params, meta, path } = newRoute
+        this.addTagNavList({ name, query, params, meta, path })
       },
-      addTagNavList(item){
-        let oldItem = this.activeRouteTag.filter(rest=>rest.name === item.name)
-        if(oldItem.length >0){
-          this.tagsChecked(item)
-        }else {
-          if(item.meta.clingy){
-            this.activeRouteTag.unshift({...item})
-          }else {
-            this.activeRouteTag.push({...item})
+      immediate: true
+    }
+  },
+  computed: {
+    ...mapState({
+      sidebarMenu: (state) => state.permission.sidebarMenu
+      // activeRouteTag:state => state.permission.activeRouteTag
+    })
+  },
+  methods: {
+    initRouterTag () {},
+    addTagNavList (item) {
+      const oldItem = this.activeRouteTag.filter(
+        (rest) => rest.name === item.name
+      )
+      if (oldItem.length > 0) {
+        this.tagsChecked(item)
+      } else {
+        if (item.meta.clingy) {
+          this.activeRouteTag.unshift({ ...item })
+        } else {
+          this.activeRouteTag.push({ ...item })
+        }
+        this.tagsChecked(item)
+      }
+    },
+    tagsChecked (item) {
+      this.tabActive = item.name
+      setRouterTag(this.activeRouteTag)
+      // 跳转页面
+      this.$router.push(item.path)
+    },
+    isClingy (tag) {
+      return tag.meta && tag.meta.clingy
+    },
+    handleCommand (command) {
+      switch (command) {
+        case 'refreshRoute':
+          // this.refreshRoute();
+          break
+        case 'closeOtherstabs':
+          // this.closeOtherstabs();
+          break
+        case 'closeLefttabs':
+          // this.closeLefttabs();
+          break
+        case 'closeRighttabs':
+          // this.closeRighttabs();
+          break
+        case 'closeAlltabs':
+          // this.closeAlltabs();
+          break
+      }
+    },
+
+    handleTabClick (routerTag) {
+      const route = this.activeRouteTag.filter((item, index) => {
+        if (routerTag.index == index) return item
+      })[0]
+      console.log(route)
+      const oldItem = this.activeRouteTag.filter(
+        (rest) => rest.name === routerTag.name
+      )
+      this.tagsChecked(oldItem[0])
+    },
+    handleTabRemove (tagName) {
+      /** 删除 菜单卡片  向后一个跳转，没有向前调整 */
+      this.activeRouteTag.forEach((item, index) => {
+        if (item.name === tagName) {
+          this.activeRouteTag.del(index)
+          let cutIndex = index
+          if (this.activeRouteTag.length === index) {
+            cutIndex -= 1
           }
-          this.tagsChecked(item)
+          this.tagsChecked(this.activeRouteTag[cutIndex])
         }
-      },
-      tagsChecked(item){
-        this.tabActive = item.name
-        setRouterTag(this.activeRouteTag)
-        // 跳转页面
-        this.$router.push(item.path);
-
-      },
-      isClingy(tag) {
-        return tag.meta && tag.meta.clingy
-      },
-      handleCommand(command) {
-        switch (command) {
-          case 'refreshRoute':
-            // this.refreshRoute();
-            break
-          case 'closeOtherstabs':
-            // this.closeOtherstabs();
-            break
-          case 'closeLefttabs':
-            // this.closeLefttabs();
-            break
-          case 'closeRighttabs':
-            // this.closeRighttabs();
-            break
-          case 'closeAlltabs':
-            // this.closeAlltabs();
-            break
-        }
-      },
-
-      handleTabClick(routerTag) {
-        const route = this.activeRouteTag.filter((item, index) => {
-          if (routerTag.index == index) return item;
-        })[0];
-        console.log(route)
-        let oldItem = this.activeRouteTag.filter(rest=>rest.name === routerTag.name)
-        this.tagsChecked(oldItem[0])
-      },
-      handleTabRemove(tagName) {
-         /** 删除 菜单卡片  向后一个跳转，没有向前调整*/
-         this.activeRouteTag.forEach((item,index)=>{
-           if(item.name === tagName){
-             this.activeRouteTag.del(index)
-             let cutIndex = index
-             if(this.activeRouteTag.length === index){
-                cutIndex -=1
-             }
-             this.tagsChecked(this.activeRouteTag[cutIndex])
-           }
-         })
-      },
-
-
-
-    },
+      })
+    }
   }
+}
 </script>
 
 <style scoped lang="less">
@@ -164,7 +162,7 @@
     padding-left: @base-padding;
     user-select: none;
     background: @base-color-white;
-    border-top: 1px solid #ECECEC;
+    border-top: 1px solid #ececec;
     ::v-deep {
       .fold-unfold {
         margin-right: @base-padding;

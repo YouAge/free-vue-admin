@@ -1,32 +1,32 @@
-/** 公共显示*/
+/** 公共显示 */
 const free = {
   name: 'free',
   title: '组件库',
-  children: [{name: 'table', title: '表格'}]
+  children: [{ name: 'table', title: '表格' }]
 }
 
 const meun2 = [
   {
     path: '/free',
     name: 'free',
-    meta: {icon: 'el-icon-s-flag', title: 'FREE组件'},
+    meta: { icon: 'el-icon-s-flag', title: 'FREE组件' },
     children: [
       {
         path: 'menu-one',
         name: 'menu-one',
         redirect: 'cnc_oee/topx',
-        meta: {icon: 'ios-navigate', title: '菜单1-1'},
+        meta: { icon: 'ios-navigate', title: '菜单1-1' },
         children: [
           {
             path: 'menu-one-two',
             name: 'menu-one-two',
-            meta: {icon: 'ios-navigate', title: '菜单1-1-2'},
+            meta: { icon: 'ios-navigate', title: '菜单1-1-2' },
             children: []
           },
           {
             path: 'menu-one-three',
             name: 'menu-one-three',
-            meta: {icon: 'ios-navigate', title: '菜单1-1-3'},
+            meta: { icon: 'ios-navigate', title: '菜单1-1-3' },
             children: []
           }
         ]
@@ -34,13 +34,13 @@ const meun2 = [
       {
         path: 'cnc_oee2',
         name: 'cnc_cutter',
-        meta: {icon: 'ios-navigate', title: 'cnc_cutter'},
+        meta: { icon: 'ios-navigate', title: 'cnc_cutter' },
         children: []
       },
       {
         path: 'cnc_oee3',
-        name: 'cnc_config',
-        meta: {icon: 'ios-navigate', title: '配置信息'},
+        name: 'free_config',
+        meta: { icon: 'ios-navigate', title: '配置信息' },
         children: []
       }
     ]
@@ -55,21 +55,36 @@ const meun2 = [
       {
         path: 'user',
         name: 'user',
-        meta: {title: '用户列表'},
+        meta: { title: '用户列表' },
         children: []
       }, //
       {
         path: 'role',
         name: 'role',
-        meta: {title: '角色'},
+        meta: { title: '角色' },
         children: []
       }, //
       {
         path: 'menu',
         name: 'menu',
-        meta: {title: '菜单'},
+        meta: { title: '菜单' },
         children: []
       } //
+    ]
+  },
+
+  {
+    path: '/error',
+    name: 'error',
+    children: [
+      {
+        path: '401',
+        name: 'error401'
+      },
+      {
+        path: 'error404',
+        name: 'error404'
+      }
     ]
   }
 ]

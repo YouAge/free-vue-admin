@@ -2,34 +2,34 @@
 <template>
   <el-breadcrumb class="breadcrumb-container" separator="/">
     <el-breadcrumb-item v-for="item in list" :key="item.path">
-      {{ item.meta.title }}
+      {{ $t(item.meta.title) }}
     </el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
 <script>
-  export default {
-    name: 'freeBreadcrumb',
-    data() {
-      return {
-        list: this.getBreadcrumb(),
-      }
-    },
-    watch: {
-      /** 监听路径*/
-      $route() {
-        this.list = this.getBreadcrumb()
-      },
-    },
-    methods: {
-      getBreadcrumb() {
-        /** 路由层级*/
-        return this.$route.matched.filter(
-          (item) => item.name && item.meta.title
-        )
-      },
-    },
+export default {
+  name: 'freeBreadcrumb',
+  data () {
+    return {
+      list: this.getBreadcrumb()
+    }
+  },
+  watch: {
+    /** 监听路径 */
+    $route () {
+      this.list = this.getBreadcrumb()
+    }
+  },
+  methods: {
+    getBreadcrumb () {
+      /** 路由层级 */
+      return this.$route.matched.filter(
+        (item) => item.name && item.meta.title
+      )
+    }
   }
+}
 </script>
 
 <style scoped lang="less">

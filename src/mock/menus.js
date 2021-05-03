@@ -3,7 +3,7 @@
  *@ 文件介绍:
  */
 
-/** 菜单结构*/
+/** 菜单结构 */
 export const menus = [
   {
     title: '菜单一',
@@ -16,9 +16,9 @@ export const menus = [
         path: '/index1-2',
         name: '11',
         icon: 'ios-alert',
-        children: [],
-      },
-    ],
+        children: []
+      }
+    ]
   },
   {
     title: '菜单二',
@@ -36,16 +36,16 @@ export const menus = [
             title: '子菜单三-1',
             name: '24',
             path: '/index2-3',
-            icon: 'ios-alert',
-          },
-        ],
-      },
-    ],
+            icon: 'ios-alert'
+          }
+        ]
+      }
+    ]
   },
   {
     title: '菜单三',
     name: '43',
     path: '/index3',
-    icon: 'ios-alert',
-  },
+    icon: 'ios-alert'
+  }
 ]

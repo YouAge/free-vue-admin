@@ -1,10 +1,17 @@
 <!--github： https://github.com/YouAge-->
 <template>
-  <div class="layout" >
-    <div v-if="layout === 'vertical'" :class="verticalMin?'vertical-min':''">
+  <div class="layout">
+    <div
+      v-if="layout === 'vertical'"
+      :class="verticalMin ? 'vertical-min' : ''"
+    >
       <!--    //左边菜单栏-->
-      <div class="mask" v-if="verticalMin && !isCollapse" @click="hiddenCollapse"></div>
-      <siderbar :is-collapse="isCollapse" ></siderbar>
+      <div
+        class="mask"
+        v-if="verticalMin && !isCollapse"
+        @click="hiddenCollapse"
+      ></div>
+      <siderbar :is-collapse="isCollapse"></siderbar>
       <!--    // 右边-->
       <div :class="isCollapse ? 'main-container' : 'max-container'">
         <!--        //顶部，导航栏和标签-->
@@ -21,10 +28,10 @@
     </div>
 
     <template v-else>
-        <!-- //横向菜单  -->
+      <!-- //横向菜单  -->
 
-          <across-menus></across-menus>
-<!--          <navnar></navnar>-->
+      <across-menus></across-menus>
+      <!--          <navnar></navnar>-->
       <div class="tag-view-show">
         <div class="horizontal-width">
           <free-tab-bar />
@@ -32,100 +39,106 @@
       </div>
       <div class="horizontal-width">
         <free-msg />
-        <app-content/>
+        <app-content />
       </div>
     </template>
-
   </div>
 </template>
 
 <script>
-  import siderbar from '@/layout/components/siderbar'
-  import Navnar from '@/layout/components/navbar'
-  import freeTabBar from './components/free-tag-bar'
-  import AppContent from '@/layout/components/app-content'
-  import { mapGetters,mapActions} from 'vuex'
-   import {visualBreadth} from '@/utils/tool'
-  import {layout} from '@/config/theme.config'
-  import AcrossMenus from "@/layout/components/across-menus";
-  import FreeMsg from "@/layout/components/free-msg";
-  export default {
-    name: 'index',
-    components: {FreeMsg, AcrossMenus, AppContent, Navnar, siderbar, freeTabBar },
+import siderbar from '@/layout/components/siderbar'
+import Navnar from '@/layout/components/navbar'
+import freeTabBar from './components/free-tag-bar'
+import AppContent from '@/layout/components/app-content'
+import { mapGetters, mapActions } from 'vuex'
+import { visualBreadth } from '@/utils/tool'
+import AcrossMenus from '@/layout/components/across-menus'
+import FreeMsg from '@/layout/components/free-msg'
+export default {
+  name: 'index',
+  components: {
+    FreeMsg,
+    AcrossMenus,
+    AppContent,
+    Navnar,
+    siderbar,
+    freeTabBar
+  },
 
-    data() {
-      return {
-        verticalMin: true,
-        layout:layout
-      }
-    },
-    computed: {
-      ...mapGetters(
-        {isCollapse:'app/isCollapse'}),
-
-    },
-    methods:{
-      ...mapActions({
-        changeCollapse:'app/changeCollapse'
-      }),
-      // 检查屏幕框架，低于999的改 改成纵向版
-      handleResize(){
-        if(visualBreadth()){
+  data () {
+    return {
+      verticalMin: true
+      // layout:layout
+      // oldLayout:''
+    }
+  },
+  computed: {
+    ...mapGetters({
+      isCollapse: 'app/isCollapse',
+      layout: 'app/layout',
+      oldLayout: 'app/oldLayout'
+    })
+  },
+  methods: {
+    ...mapActions({
+      changeCollapse: 'app/changeCollapse',
+      changeLayout: 'app/changeLayout'
+    }),
+    // 检查屏幕框架，低于999的改 改成纵向版
+    handleResize () {
+      if (!document.hidden) {
+        if (visualBreadth()) {
           // 手机模式
           this.verticalMin = true
-          this.layout = 'vertical'
-        }else {
-          this.verticalMin =false
+          this.changeLayout({ layout: 'vertical' })
+        } else {
+          this.verticalMin = false
+          // 变回原来的主题模式
+          this.changeLayout({ layout: this.oldLayout })
         }
-
-      },
-      // 隐藏 菜单蓝
-      hiddenCollapse(){
-        this.changeCollapse()
       }
     },
-    mounted() {
-      console.log(this.isCollapse)
-
-      const userAgent = navigator.userAgent
-      this.handleResize()
-
-
-
-    },
-    /** 监听响应屏幕宽度，实时css样式*/
-    beforeMount() {
-      window.addEventListener('resize', this.handleResize)
-    },
-    beforeDestroy() {
-      window.removeEventListener('resize', this.handleResize)
-    },
-
+    // 隐藏 菜单蓝
+    hiddenCollapse () {
+      this.changeCollapse()
+    }
+  },
+  mounted () {
+    // this.oldLayout = this.layout
+    const userAgent = navigator.userAgent
+    this.handleResize()
+  },
+  /** 监听响应屏幕宽度，实时css样式 */
+  beforeMount () {
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.handleResize)
   }
+}
 </script>
 
 <style scoped lang="less">
-.layout{
-  position: relative;
-  width: 100%;
-  height: 100%;
+  .layout {
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-
-  /** 横线布局*/
-  .horizontal-width{
-    width: 88%;
-    margin: auto;
-    .app-container{
-      margin-top: @base-padding;
-      margin-bottom: @base-padding;
+    /** 横线布局*/
+    .horizontal-width {
+      width: 88%;
+      margin: auto;
+      .app-container {
+        margin-top: @base-padding;
+        margin-bottom: @base-padding;
+        background: @base-color-white;
+      }
+    }
+    .tag-view-show {
       background: @base-color-white;
+      box-shadow: @base-box-shadow;
     }
   }
-  .tag-view-show{
-    background: @base-color-white;
-    box-shadow: @base-box-shadow;
-  }
-}
 
   .max-container {
     margin-left: @base-left-menu-width;
@@ -135,7 +148,7 @@
   }
 
   .main-container,
-  .max-container{
+  .max-container {
     .app-container {
       width: calc(100% - @base-padding - @base-padding);
       margin: @base-padding auto;
@@ -144,12 +157,9 @@
     }
   }
 
-
-
-
-  .vertical-min{
+  .vertical-min {
     // 手机端
-    .mask{
+    .mask {
       position: fixed;
       top: 0;
       right: 0;
@@ -162,29 +172,21 @@
       background: #000;
       opacity: 0.5;
     }
-    .max-container{
+    .max-container {
       margin-left: 0;
     }
-    ::v-deep{
+    ::v-deep {
       .el-pager,
-      .el-scrollbar__wrap{
-
+      .el-scrollbar__wrap {
       }
 
-
-      .scrollbar-wrapper.el-scrollbar.is-collapse{
+      .scrollbar-wrapper.el-scrollbar.is-collapse {
         width: 0 !important;
       }
 
-      .main-container{
+      .main-container {
         margin-left: 0;
       }
-
     }
-
   }
-
-
-
-
 </style>

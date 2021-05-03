@@ -1,24 +1,39 @@
 # free-vue-admin
 
-## Project setup
+## 简介
+free-vue-admin 是一个免费开源的vue2中后台初始化模版。开箱即用的中后台前端解决方案，也可用于学习参考。
+
+free-vite-admin 是vue3版本
+
+
+
+## 安装使用
+
+- 获取项目代码
+
+```bash
+git clone https://github.com/YouAge/free-vue-admin.git
 ```
+
+- 安装依赖
+
+```bash
+cd free-vue-admin
+yarn install
+
+cd free-vue-admin/scr/mock/nodeServers
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+- 运行
+
+```bash
+npm run serve
+npm run koa
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- 打包
 
-### Lints and fixes files
+```bash
+npm run build
 ```
-yarn lint
-```
-
-
-### 

@@ -13,14 +13,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'appContent',
-    data() {
-      return {
-        footerCopyright: true,
-      }
-    },
+export default {
+  name: 'appContent',
+  data () {
+    return {
+      footerCopyright: true
+    }
   }
+}
 </script>
 
 <style scoped lang="less">

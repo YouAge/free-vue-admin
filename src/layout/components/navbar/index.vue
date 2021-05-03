@@ -8,36 +8,16 @@
             :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
             :title="isCollapse ? '展开' : '收起'"
             class="fold-unfold"
-            @click="handleCollapse"
+            @click="changeCollapse"
           ></i>
           <free-breadcrumb />
         </div>
       </el-col>
       <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="right-panel">
-          <div style="color: #2f3447" class="icon-fun">
-            <free-icon name="full-screen" />
-            <free-icon name="translate"/>
-            <set-theme-bar />
-          </div>
-
+          <free-top-icons style="color: #2f3447" />
           <!--          // user-hom-->
-          <el-dropdown @command="handleCommand">
-            <span class="avatar-dropdown">
-              <el-avatar class="user-avatar" :src="avatar"></el-avatar>
-              <div class="user-name">
-                {{ username }}
-                <i class="el-icon-arrow-down el-icon--right"></i>
-              </div>
-            </span>
-
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item command="github">个人信息</el-dropdown-item>
-              <el-dropdown-item command="logout" divided>
-                退出登录
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
+          <user-navbar />
         </div>
       </el-col>
     </el-row>
@@ -45,61 +25,36 @@
 </template>
 
 <script>
-  import FreeBreadcrumb from '@/layout/components/navbar/freeBreadcrumb'
-  import { mapActions, mapGetters } from 'vuex'
-  import FreeIcon from "@/components/free-icon";
-  import SetThemeBar from "@/layout/components/setThemeBar";
-  export default {
-    name: 'navnar',
-    components: {SetThemeBar, FreeIcon, FreeBreadcrumb },
-    data() {
-      return {
-        avatar: require('@/assets/logo.png'),
-        username: 'admin',
-      }
-    },
-    computed: {
-      ...mapGetters({
-        isCollapse:'app/isCollapse'}),
-    },
-    methods: {
-      ...mapActions({
-        changeCollapse:'app/changeCollapse',
-        logout:'user/logout'
-      }),
-      handleCollapse() {
-        this.changeCollapse()
-      },
-      handleCommand(command) {
-        switch (command) {
-          case 'logout':
-            this.logout()
-            break
-          case 'personalCenter':
-            this.personalCenter()
-            break
-          case 'github':
-            window.open('https://github.com/chuzhixin/vue-admin-beautiful')
-            break
-          case 'gitee':
-            window.open('https://gitee.com/chu1204505056/vue-admin-beautiful')
-            break
-          case 'pro':
-            window.open(
-              'https://chu1204505056.gitee.io/admin-pro/?hmsr=homeAd&hmpl=&hmcu=&hmkw=&hmci='
-            )
-            break
-          case 'plus':
-            window.open(
-              'https://chu1204505056.gitee.io/admin-plus/?hmsr=homeAd&hmpl=&hmcu=&hmkw=&hmci='
-            )
-        }
-      },
-      personalCenter() {
-        this.$router.push('/personalCenter/personalCenter')
-      },
-    },
+import FreeBreadcrumb from '@/layout/components/navbar/freeBreadcrumb'
+import { mapActions, mapGetters } from 'vuex'
+import FreeIcon from '@/components/free-icon'
+import SetThemeBar from '@/layout/components/setThemeBar'
+import UserNavbar from '@/layout/components/navbar/user-navbar'
+import FreeTopIcons from '@/layout/components/navbar/freeTopIcons'
+export default {
+  name: 'navnar',
+  components: {
+    FreeTopIcons,
+    UserNavbar,
+    SetThemeBar,
+    FreeIcon,
+    FreeBreadcrumb
+  },
+  data () {
+    return {}
+  },
+  computed: {
+    ...mapGetters({
+      isCollapse: 'app/isCollapse'
+    })
+  },
+  methods: {
+    ...mapActions({
+      changeCollapse: 'app/changeCollapse',
+      logout: 'user/logout'
+    })
   }
+}
 </script>
 
 <style scoped lang="less">
@@ -135,10 +90,10 @@
       align-items: center;
       justify-content: flex-end;
       height: @base-nav-bar-height;
-      .icon-fun{
+      .icon-fun {
         display: flex;
-        >div,
-        >svg{
+        > div,
+        > svg {
           margin-right: 15px;
           font-size: 18px;
           cursor: pointer;

@@ -1,13 +1,13 @@
 <!--github： https://github.com/YouAge-->
 <template>
-  <div class="user-content">
-
+  <div class="error" style="color: #2f3447">
+401
   </div>
 </template>
 
 <script>
 export default {
-  name: 'user'
+  name: '401'
 }
 </script>
 

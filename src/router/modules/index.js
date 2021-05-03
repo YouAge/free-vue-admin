@@ -1,4 +1,5 @@
 import layout from '@/layout'
+import Empty from '@/layout/empty'
 
 /**
  *@ github： https://github.com/YouAge
@@ -16,7 +17,7 @@ export const baseRoutes = [
     name: 'login',
     component: () => import('@/views/login'),
     meta: {
-      title: '登录',
+      title: 'm.login',
       requiresAuth: false,
       sidebar: true
     }
@@ -25,9 +26,9 @@ export const baseRoutes = [
 
 export const lastRoute = {
   path: '*',
-  component: () => import('@/views/404'),
+  component: () => import('@/views/error/404'),
   meta: {
-    title: '404',
+    title: 'm.fourZeroFour',
     sidebar: true
   }
 }
@@ -38,7 +39,7 @@ export const asyncRoutes = [
     name: 'home',
     component: layout,
     redirect: 'home',
-    meta: {icon: 'el-icon-s-home'},
+    meta: { icon: 'el-icon-s-home' },
     children: [
       // 主页
       {
@@ -47,7 +48,7 @@ export const asyncRoutes = [
         component: () => import('@/views/Home'),
         meta: {
           icon: 'el-icon-s-home',
-          title: '首页',
+          title: 'm.home',
           clingy: true
         }
       }
@@ -57,39 +58,33 @@ export const asyncRoutes = [
     path: '/free',
     name: 'free',
     component: layout,
-    meta: {icon: 'el-icon-s-flag', title: 'FREE组件'},
+    meta: { icon: 'el-icon-s-flag', title: 'm.components' },
     children: [
       {
         path: 'menu-one',
         name: 'menu-one',
         redirect: 'cnc_oee/topx',
-        meta: {icon: 'ios-navigate', title: '菜单1-1'},
+        meta: { icon: 'ios-navigate', title: 'm.menuOne' },
         children: [
           {
             path: 'menu-one-two',
             name: 'menu-one-two',
             component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: '菜单1-1-2'}
+            meta: { icon: 'ios-navigate', title: 'm.menuOneTop' }
           },
           {
             path: 'menu-one-three',
             name: 'menu-one-three',
             component: () => import('@/views/cnc/top'),
-            meta: {icon: 'ios-navigate', title: '菜单1-1-3'}
+            meta: { icon: 'ios-navigate', title: 'm.menuOneTopThree' }
           }
         ]
       },
       {
-        path: 'cnc_oee2',
-        name: 'cnc_cutter',
+        path: 'config',
+        name: 'free_config',
         component: () => import('@/views/cnc/cnc_oee'),
-        meta: {icon: 'ios-navigate', title: 'cnc_cutter'}
-      },
-      {
-        path: 'cnc_oee3',
-        name: 'cnc_config',
-        component: () => import('@/views/cnc/cnc_oee'),
-        meta: {icon: 'ios-navigate', title: '配置信息'}
+        meta: { icon: 'ios-navigate', title: 'm.config' }
       }
     ]
   },
@@ -99,45 +94,46 @@ export const asyncRoutes = [
     component: layout,
     redirect: 'user',
     name: 'admin',
-    meta: {title: '用户权限', icon: 'el-icon-s-flag'},
+    meta: { title: 'm.userRight', icon: 'el-icon-s-flag' },
     children: [
       {
         path: 'user',
         name: 'user',
         component: () => import('@/views/free-user/user'),
-        meta: {title: '用户列表'}
+        meta: { title: 'm.userList' }
       }, //
       {
         path: 'role',
         name: 'role',
         component: () => import('@/views/free-user/menus'),
-        meta: {title: '角色'}
+        meta: { title: 'm.role' }
       }, //
       {
         path: 'menu',
         name: 'menu',
         component: () => import('@/views/free-user/menus'),
-        meta: {title: '菜单'}
+        meta: { title: 'm.menu' }
       } //
     ]
   },
   {
-    path: '/material',
-    component: layout,
-    name: 'material',
-    meta: {title: '样品管理', icon: 'el-icon-s-flag'},
+    path: '/error',
+    component: Empty,
+    redirect: '401',
+    name: 'error',
+    meta: { title: 'm.error', icon: 'el-icon-s-flag' },
     children: [
       {
-        path: 'material-view',
-        name: 'material',
-        meta: {icon: 'ios-home-outline', title: '样品管理'},
-        component: () => import('@/views/material/index')
+        path: '401',
+        name: 'error401',
+        meta: { icon: 'ios-home-outline', title: 'm.fourZeroOne' },
+        component: () => import('@/views/error/401')
       },
       {
-        path: 'material-config',
-        name: 'materialConfig',
-        meta: {icon: 'ios-home-outline', title: '样品管理配置'},
-        component: () => import('@/views/material/material_config')
+        path: '404',
+        name: 'error404',
+        meta: { icon: 'ios-home-outline', title: 'm.fourZeroFour' },
+        component: () => import('@/views/error/404')
       }
     ]
   }
