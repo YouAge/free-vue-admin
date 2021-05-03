@@ -1,7 +1,7 @@
 # free-vue-admin
 
 ## 简介
-free-vue-admin 是一个免费开源的vue2中后台初始化模版。开箱即用的中后台前端解决方案，也可用于学习参考。
+free-vue-admin 是一个免费开源的vue2中后台初始化模版。开箱即用的中后台前端解决方案，学习交流。
 
 free-vite-admin 是vue3版本
 
