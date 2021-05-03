@@ -67,7 +67,7 @@ export default {
 
   data () {
     return {
-      verticalMin: true
+      verticalMin: false
     }
   },
   computed: {
@@ -84,7 +84,7 @@ export default {
     }),
     // 检查屏幕框架，低于999的改 改成纵向版
     handleResize () {
-      if (!document.hidden) {
+      // if (!document.hidden) {
         if (visualBreadth()) {
           // 手机模式
           this.verticalMin = true
@@ -94,7 +94,7 @@ export default {
           // 变回原来的主题模式
           this.changeLayout({ layout: this.oldLayout })
         }
-      }
+      // }
     },
     // 隐藏 菜单蓝
     hiddenCollapse () {
