@@ -68,8 +68,6 @@ export default {
   data () {
     return {
       verticalMin: true
-      // layout:layout
-      // oldLayout:''
     }
   },
   computed: {

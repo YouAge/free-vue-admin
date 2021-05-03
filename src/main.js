@@ -6,7 +6,7 @@ import './plugins'
 
 import ElementLocale from 'element-ui/lib/locale'
 import VueI18n from 'vue-i18n'
-import { getI18n } from './utils/handling'
+import { getI18n } from '@/utils/handling'
 
 Vue.config.productionTip = false
 

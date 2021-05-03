@@ -19,7 +19,7 @@
 import TooltipIcon from '@/components/free-icon/tooltip-icon'
 import SetThemeBar from '@/layout/components/setThemeBar'
 import { exitFullScreen, fullscreenEnable, reqFullScreen } from '@/utils/tool'
-import { setI18n } from '../../../utils/handling'
+import { setI18n } from '@/utils/handling'
 
 export default {
   name: 'freeTopIcons',
