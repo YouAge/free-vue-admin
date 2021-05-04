@@ -1,8 +1,6 @@
 <!--github： https://github.com/YouAge-->
 <template>
-  <div class="error" style="color: #2f3447">
-401
-  </div>
+  <div class="error" style="color: #2f3447"> 401 </div>
 </template>
 
 <script>
@@ -11,6 +9,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

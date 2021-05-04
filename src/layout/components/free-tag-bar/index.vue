@@ -22,10 +22,6 @@
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown" class="tabs-more">
-        <!-- <el-dropdown-item command="refreshRoute">
-          <vab-icon :icon="['fas', 'circle-notch']" />
-          刷新
-        </el-dropdown-item> -->
         <el-dropdown-item command="closeOtherstabs">
           <!--        <vab-icon :icon="['fas', 'times-circle']" />-->
           关闭其他
@@ -61,7 +57,6 @@ export default {
   watch: {
     $route: {
       handler (newRoute) {
-        console.log('shuj', this.$route)
         // 初始化，固定url
         this.initRouterTag()
         const { name, query, params, meta, path } = newRoute
@@ -104,22 +99,20 @@ export default {
     },
     handleCommand (command) {
       switch (command) {
-        case 'refreshRoute':
-          // this.refreshRoute();
-          break
         case 'closeOtherstabs':
-          // this.closeOtherstabs();
+          this.closeOtherstabs()
           break
         case 'closeLefttabs':
-          // this.closeLefttabs();
+          this.closeLefttabs()
           break
         case 'closeRighttabs':
-          // this.closeRighttabs();
+          this.closeRighttabs()
           break
         case 'closeAlltabs':
-          // this.closeAlltabs();
+          this.closeAlltabs()
           break
       }
+      setRouterTag(this.activeRouteTag)
     },
 
     handleTabClick (routerTag) {
@@ -144,6 +137,44 @@ export default {
           this.tagsChecked(this.activeRouteTag[cutIndex])
         }
       })
+    },
+
+    /** 菜单卡片操作 */
+    closeOtherstabs () {
+      this.activeRouteTag = this.activeRouteTag.filter(
+        (item, index) => item.name === this.tabActive || item.meta.clingy
+      )
+    },
+    closeLefttabs () {
+      let tagIndex = 0
+      this.activeRouteTag.forEach((item, index) => {
+        if (item.name === this.tabActive) {
+          tagIndex = index
+        }
+      })
+      this.activeRouteTag = this.activeRouteTag.filter(
+        (item, index) => tagIndex <= index || item.meta.clingy
+      )
+    },
+    closeRighttabs () {
+      let tagIndex = 0
+      this.activeRouteTag.forEach((item, index) => {
+        if (item.name === this.tabActive) {
+          tagIndex = index
+        }
+      })
+      this.activeRouteTag = this.activeRouteTag.filter(
+        (item, index) => tagIndex >= index || item.meta.clingy
+      )
+    },
+    closeAlltabs () {
+      // 关闭，并跳转到固定页面，如果只有一
+      this.activeRouteTag = this.activeRouteTag.filter(
+        (item) => item.meta.clingy
+      )
+      this.tabActive = this.activeRouteTag[0].name
+      // 设置延迟几秒跳转
+      this.$router.push(this.activeRouteTag[0].path)
     }
   }
 }

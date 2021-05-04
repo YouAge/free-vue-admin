@@ -11,9 +11,7 @@
 
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item command="github">个人信息</el-dropdown-item>
-      <el-dropdown-item command="logout" divided>
-        退出登录
-      </el-dropdown-item>
+      <el-dropdown-item command="logout" divided> 退出登录 </el-dropdown-item>
     </el-dropdown-menu>
   </el-dropdown>
 </template>

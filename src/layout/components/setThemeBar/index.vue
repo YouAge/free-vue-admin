@@ -10,7 +10,7 @@
       size="330px"
       @close="setTheme"
     >
-      <el-scrollbar style="height: 90vh;">
+      <el-scrollbar style="height: 90vh">
         <div>
           <el-divider>主题</el-divider>
           <them-style @change="switchover" />

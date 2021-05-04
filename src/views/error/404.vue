@@ -4,13 +4,11 @@
     <el-row :gutter="20">
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
         <div class="pic-error">
-
           <img
             alt="404"
             class="pic-error-child left"
             src="@/assets/imges/404.png"
           />
-
         </div>
       </el-col>
 
@@ -25,7 +23,6 @@
         </div>
       </el-col>
     </el-row>
-
   </div>
 </template>
 
@@ -46,16 +43,16 @@ export default {
 </script>
 
 <style scoped lang="less">
-.error-content{
-  //position: absolute;
-  //display: flex;
-   .pic-error{
+  .error-content {
+    //position: absolute;
+    //display: flex;
+    .pic-error {
       width: 400px;
       height: 200px;
-      img{
+      img {
         width: 100%;
         height: 100%;
       }
-   }
-}
+    }
+  }
 </style>

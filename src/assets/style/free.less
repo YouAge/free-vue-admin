@@ -3,11 +3,11 @@
  *@ 创建时间: 全部样式入口文件
  */
 
-@import "./resources/recover.less";
-@import "./resources/variables.less";
-@import "./resources/utils.less";
+@import './resources/recover.less';
+@import './resources/variables.less';
+@import './resources/utils.less';
 
-.base-scrollbar (){
+.base-scrollbar () {
   &::-webkit-scrollbar {
     width: 13px;
     height: 13px;
@@ -33,14 +33,13 @@
   }
 }
 
-
-html{
-  body{
+html {
+  body {
     position: relative;
     height: 100vh;
     padding: 0;
     margin: 0;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     font-size: @base-font-size-default;
     color: #fff;
     background: #f6f8f9;
@@ -48,9 +47,9 @@ html{
     -moz-osx-font-smoothing: grayscale;
   }
   // 类容的 默认最小高度
-  .app-main-container{
+  .app-main-container {
     .base-scrollbar();
-    >[class*='-content']{
+    > [class*='-content'] {
       * {
         transition: none;
       }

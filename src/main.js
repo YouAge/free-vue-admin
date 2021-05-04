@@ -20,7 +20,6 @@ const i18n = new VueI18n({
 })
 
 ElementLocale.i18n((key, value) => i18n.t(key, value))
-// Vue.config.$i18n= i18n
 
 new Vue({
   router,

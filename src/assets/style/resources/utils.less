@@ -3,18 +3,16 @@
  *@ 文件简介：
  */
 
-
 // 文字超出隐藏，默认为单行超出隐藏，可设置多行
 .text-overflow(@line: 1, @fixed-width: true) {
-@if (@line==1 and @fixed-width==true) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-@else {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: @line;
-  overflow: hidden;
-}
+  @if (@line==1 and @fixed-width==true) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line;
+    overflow: hidden;
+  }
 }

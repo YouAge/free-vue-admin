@@ -85,15 +85,15 @@ export default {
     // 检查屏幕框架，低于999的改 改成纵向版
     handleResize () {
       // if (!document.hidden) {
-        if (visualBreadth()) {
-          // 手机模式
-          this.verticalMin = true
-          this.changeLayout({ layout: 'vertical' })
-        } else {
-          this.verticalMin = false
-          // 变回原来的主题模式
-          this.changeLayout({ layout: this.oldLayout })
-        }
+      if (visualBreadth()) {
+        // 手机模式
+        this.verticalMin = true
+        this.changeLayout({ layout: 'vertical' })
+      } else {
+        this.verticalMin = false
+        // 变回原来的主题模式
+        this.changeLayout({ layout: this.oldLayout })
+      }
       // }
     },
     // 隐藏 菜单蓝

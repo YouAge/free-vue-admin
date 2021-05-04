@@ -1,6 +1,5 @@
-# .eslintignore
-
 src/assets
 public
 dist
 node_modules
+**/node_modules
