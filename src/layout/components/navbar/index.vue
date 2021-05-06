@@ -25,36 +25,36 @@
 </template>
 
 <script>
-import FreeBreadcrumb from '@/layout/components/navbar/freeBreadcrumb'
-import { mapActions, mapGetters } from 'vuex'
-import FreeIcon from '@/components/free-icon'
-import SetThemeBar from '@/layout/components/setThemeBar'
-import UserNavbar from '@/layout/components/navbar/user-navbar'
-import FreeTopIcons from '@/layout/components/navbar/freeTopIcons'
-export default {
-  name: 'navnar',
-  components: {
-    FreeTopIcons,
-    UserNavbar,
-    SetThemeBar,
-    FreeIcon,
-    FreeBreadcrumb
-  },
-  data () {
-    return {}
-  },
-  computed: {
-    ...mapGetters({
-      isCollapse: 'app/isCollapse'
-    })
-  },
-  methods: {
-    ...mapActions({
-      changeCollapse: 'app/changeCollapse',
-      logout: 'user/logout'
-    })
+  import FreeBreadcrumb from '@/layout/components/navbar/freeBreadcrumb'
+  import {mapActions, mapGetters} from 'vuex'
+  import FreeIcon from '@/components/free-icon'
+  import SetThemeBar from '@/layout/components/setThemeBar'
+  import UserNavbar from '@/layout/components/navbar/user-navbar'
+  import FreeTopIcons from '@/layout/components/navbar/freeTopIcons'
+  export default {
+    name: 'navnar',
+    components: {
+      FreeTopIcons,
+      UserNavbar,
+      SetThemeBar,
+      FreeIcon,
+      FreeBreadcrumb
+    },
+    data() {
+      return {}
+    },
+    computed: {
+      ...mapGetters({
+        isCollapse: 'app/isCollapse'
+      })
+    },
+    methods: {
+      ...mapActions({
+        changeCollapse: 'app/changeCollapse',
+        logout: 'user/logout'
+      })
+    }
   }
-}
 </script>
 
 <style scoped lang="less">
