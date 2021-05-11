@@ -15,8 +15,10 @@ const menu = {
   components: '组件',
   error: '错误页面',
   menuOne: '菜单1-1',
+  menuTwo:"菜单2-1",
   menuOneTop: '菜单1-2',
-  menuOneTopThree: '菜单1-3'
+  menuOneTopThree: '菜单1-3',
+  hierarchyMenu:'层级菜单'
 }
 
 const navbar = {

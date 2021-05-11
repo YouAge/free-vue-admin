@@ -4,14 +4,16 @@
 const free = {
   name: 'free',
   title: '组件库',
-  children: [{ name: 'table', title: '表格' }]
+  children: [
+    { name: 'table', title: '表格' },
+    { name: 'video', title: '视频' },
+    { name: 'map', title: '地图' },
+    ]
 }
 
 const meun2 = [
   {
-    path: '/free',
-    name: 'free',
-    meta: { icon: 'el-icon-s-flag', title: 'FREE组件' },
+    name: 'menus',
     children: [
       {
         path: 'menu-one',
@@ -34,17 +36,11 @@ const meun2 = [
         ]
       },
       {
-        path: 'cnc_oee2',
-        name: 'cnc_cutter',
-        meta: { icon: 'ios-navigate', title: 'cnc_cutter' },
+        name: 'menu-two',
+        meta: { icon: 'ios-navigate', title: '菜单2-1' },
         children: []
       },
-      {
-        path: 'cnc_oee3',
-        name: 'free_config',
-        meta: { icon: 'ios-navigate', title: '配置信息' },
-        children: []
-      }
+
     ]
   },
 
@@ -119,7 +115,7 @@ const admin = {
     //     {name: 'menuAdmin', title: '菜单管理', path: 'menu-admin'}
     //   ]
     // },
-    // free,
+    free,
     ...meun2
   ]
 }

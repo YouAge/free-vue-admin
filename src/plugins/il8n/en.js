@@ -15,8 +15,10 @@ const menu = {
   components: 'free components',
   error: 'error pager',
   menuOne: 'menu-1-1',
+  menuTwo: 'menuTwo2-1',
   menuOneTop: 'menu-1-2',
-  menuOneTopThree: 'menu-1-3'
+  menuOneTopThree: 'menu-1-3',
+  hierarchyMenu: 'HierarchyMenu'
 }
 
 const navbar = {

@@ -24,11 +24,11 @@
         </div>
         <el-checkbox v-model="form.remember">记住我</el-checkbox>
         <el-button :loading="loading" type="primary" style="width: 100%;" @click.native.prevent="handleLogin">登 录</el-button>
-        <div style="margin-top: 20px; margin-bottom: -10px; color: #666; font-size: 14px; text-align: center; font-weight: bold;">
-          <span style="margin-right: 5px;">账号一键登录：</span>
-          <el-button type="danger" size="mini" @click="testAccount('admin')">admin</el-button>
-          <el-button type="danger" size="mini" plain @click="testAccount('test')">test</el-button>
-        </div>
+<!--        <div style="margin-top: 20px; margin-bottom: -10px; color: #666; font-size: 14px; text-align: center; font-weight: bold;">-->
+<!--          <span style="margin-right: 5px;">账号一键登录：</span>-->
+<!--          <el-button type="danger" size="mini" @click="testAccount('admin')">admin</el-button>-->
+<!--          <el-button type="danger" size="mini" plain @click="testAccount('test')">test</el-button>-->
+<!--        </div>-->
       </el-form>
     </div>
 <!--    <Copyright v-if="$store.state.settings.showCopyright" />-->
@@ -83,10 +83,8 @@
           if (valid) {
             this.loading = true
             this.$store.dispatch('user/login', this.form).then(() => {
-              console.log( '登入成功')
               this.loading = false
               this.form.remember && localStorage.setItem('login_account', this.form.user)
-
               this.$router.push({ path: this.redirect || '/' })
             }).catch(() => {
               console.log( '失败')
@@ -131,6 +129,7 @@
     width: 100%;
     height: 100%;
     //background-image: url('~@/assets/imges/login/logo.png');
+    background-color: #9DBBBD;
     background-size: cover;
     background-position: center center;
   }

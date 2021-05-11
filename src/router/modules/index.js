@@ -56,40 +56,59 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/menus',
+    name: 'menus',
+    component: layout,
+    meta: { icon: 'el-icon-s-flag', title: 'm.hierarchyMenu' },
+    children: [
+      {
+        path: 'menu-one',
+        name: 'menu-one',
+        redirect: 'menu-one/menu-one-two',
+        meta: { icon: 'ios-navigate', title: 'm.menuOne' },
+        children: [
+          {
+            path: 'menu-one-two',
+            name: 'menu-one-two',
+            component: () => import('@/views/hierarchyMenu/menu'),
+            meta: { icon: 'ios-navigate', title: 'm.menuOneTop' }
+          },
+          {
+            path: 'menu-one-three',
+            name: 'menu-one-three',
+            component: () => import('@/views/hierarchyMenu/menu'),
+            meta: { icon: 'ios-navigate', title: 'm.menuOneTopThree' }
+          }
+        ]
+      },
+      {
+        path:'menu-two',
+        name: 'menu-two',
+        meta: { icon: 'ios-navigate', title: 'm.menuTwo' },
+        component: () => import('@/views/hierarchyMenu/menu2'),
+      }
+    ]
+  },
+  {
     path: '/free',
     name: 'free',
     component: layout,
     meta: { icon: 'el-icon-s-flag', title: 'm.components' },
     children: [
       {
-        path: 'menu-one',
-        name: 'menu-one',
-        redirect: 'cnc_oee/topx',
-        meta: { icon: 'ios-navigate', title: 'm.menuOne' },
-        children: [
-          {
-            path: 'menu-one-two',
-            name: 'menu-one-two',
-            component: () => import('@/views/cnc/top'),
-            meta: { icon: 'ios-navigate', title: 'm.menuOneTop' }
-          },
-          {
-            path: 'menu-one-three',
-            name: 'menu-one-three',
-            component: () => import('@/views/cnc/top'),
-            meta: { icon: 'ios-navigate', title: 'm.menuOneTopThree' }
-          }
-        ]
+        path: 'table',
+        name: 'table',
+        component: () => import('@/views/free-compontents/free-table'),
+        meta: { icon: 'ios-navigate', title: 'm.table' }
       },
       {
         path: 'config',
-        name: 'free_config',
-        component: () => import('@/views/cnc/cnc_oee'),
-        meta: { icon: 'ios-navigate', title: 'm.config' }
+        name: 'video',
+        component: () => import('@/views/free-compontents/free-video'),
+        meta: { icon: 'ios-navigate', title: 'm.video' }
       }
     ]
   },
-
   {
     path: '/admin',
     component: layout,
