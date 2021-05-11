@@ -1,6 +1,8 @@
 <!--github： https://github.com/YouAge-->
 <template>
-  <div class="video-content"> </div>
+  <div class='video-content'>
+
+  </div>
 </template>
 
 <script>
@@ -9,4 +11,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

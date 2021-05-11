@@ -21,7 +21,8 @@ export const baseRoutes = [
       requiresAuth: false,
       sidebar: true
     }
-  }
+  },
+
 ]
 
 export const lastRoute = {
@@ -134,6 +135,45 @@ export const asyncRoutes = [
         name: 'error404',
         meta: { icon: 'ios-home-outline', title: 'm.fourZeroFour' },
         component: () => import('@/views/error/404')
+      }
+    ]
+  },
+
+  {
+    path: '/iframe',
+    name: 'iframe',
+    component: layout,
+    redirect: 'baidu',
+    meta: { icon: 'el-icon-s-home',title: '内联地址' },
+    children: [
+      // 主页
+      {
+        path: 'baidu',
+        name: 'baidu',
+        component: () => import('@/views/iframe'),
+        meta: {
+          icon: 'el-icon-s-home',
+          title: '百度',
+          path: "https://www.baidu.com/",
+        }
+      }
+      ,{
+        path: 'antdv',
+        name: 'antdv',
+        component: () => import('@/views/iframe'),
+        meta: {
+          icon: 'el-icon-s-home',
+          title: 'antdv',
+          path: "https://2x.antdv.com/",
+        }
+      },
+      {
+        path: 'https://www.baidu.com/',
+        name:'vue3',
+        meta: {
+          icon: 'el-icon-s-home',
+          title: '外链接'
+        }
       }
     ]
   }

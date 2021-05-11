@@ -15,6 +15,7 @@
 <script>
 import { isExternal } from '@/utils/tool'
 import path from 'path'
+import useRoute from '@/layout/components/useRoute'
 export default {
   name: 'freeMenuItem',
   props: {
@@ -33,6 +34,7 @@ export default {
       default: ''
     }
   },
+  mixins:[useRoute],
   methods: {
     /** 处理，判断path */
     handlePath (routePath) {
@@ -47,10 +49,11 @@ export default {
     /** 菜单页面path 统一跳转 */
     handleLink () {
       const routePath = this.routeChildren.path
-      const url = path.resolve(this.basePath, routePath)
-      // const target = this.parentItem.meta.target
-      // 判断path 是否是外链接，或者单独开一个， 或者使用内联式方式打开外部path
-      this.$router.push(url)
+      let url = this.basePath
+      if(!isExternal(this.basePath)){
+        url = path.resolve(this.basePath, routePath)
+      }
+      this.dealRouter({path:url})
     }
   },
   mounted () {}

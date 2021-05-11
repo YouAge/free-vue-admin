@@ -16,7 +16,7 @@ module.exports = {
   },
 
   // set-token 缓存Name
-  TOKEN_NAME: 'freeToken',
+  TOKEN_NAME: 'token',
   // token过期时间（天数）
   cookieExpires: 3
 }

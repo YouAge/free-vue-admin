@@ -1,3 +1,5 @@
+
+
 /** 公共显示 */
 const free = {
   name: 'free',
@@ -85,6 +87,18 @@ const meun2 = [
         path: 'error404',
         name: 'error404'
       }
+    ]
+  },
+
+
+  {
+    name: 'iframe',
+    meta: { icon: 'el-icon-s-home',title: '内连接' },
+    children: [
+      // 主页
+      { name: 'baidu', title: '百度' },
+      { name: 'antdv', title: 'ant' },
+      { name: 'vue3', title: '外链接' }
     ]
   }
 ]

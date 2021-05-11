@@ -20,8 +20,9 @@ export default {
       footerCopyright: true
     }
   },
-  computed: {
+  computed:{
     // 缓存主键， 通过 meta中的 keepAlive
+
   }
 }
 </script>

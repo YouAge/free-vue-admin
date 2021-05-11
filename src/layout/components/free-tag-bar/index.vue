@@ -22,6 +22,7 @@
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown" class="tabs-more">
+
         <el-dropdown-item command="closeOtherstabs">
           <!--        <vab-icon :icon="['fas', 'times-circle']" />-->
           关闭其他
@@ -46,6 +47,7 @@
 <script>
 import { mapState } from 'vuex'
 import { setRouterTag, getRouterTag } from '@/utils/handling'
+import useRoute from '@/layout/components/useRoute'
 export default {
   name: 'freeTagBar',
   data () {
@@ -54,6 +56,7 @@ export default {
       activeRouteTag: getRouterTag()
     }
   },
+  mixins:[useRoute],
   watch: {
     $route: {
       handler (newRoute) {
@@ -91,8 +94,9 @@ export default {
     tagsChecked (item) {
       this.tabActive = item.name
       setRouterTag(this.activeRouteTag)
-      // 跳转页面
-      this.$router.push(item.path)
+      // 跳转页面 TODO
+      this.dealRouter(item)
+      // this.$router.push({ path: item.path, query: { iframe: item.meta.path  }});
     },
     isClingy (tag) {
       return tag.meta && tag.meta.clingy
@@ -100,16 +104,16 @@ export default {
     handleCommand (command) {
       switch (command) {
         case 'closeOtherstabs':
-          this.closeOtherstabs()
+          this.closeOtherstabs();
           break
         case 'closeLefttabs':
-          this.closeLefttabs()
+          this.closeLefttabs();
           break
         case 'closeRighttabs':
-          this.closeRighttabs()
+          this.closeRighttabs();
           break
         case 'closeAlltabs':
-          this.closeAlltabs()
+          this.closeAlltabs();
           break
       }
       setRouterTag(this.activeRouteTag)
@@ -117,9 +121,8 @@ export default {
 
     handleTabClick (routerTag) {
       const route = this.activeRouteTag.filter((item, index) => {
-        if (routerTag.index == index) return item
+        if (routerTag.index === index) return item
       })[0]
-      console.log(route)
       const oldItem = this.activeRouteTag.filter(
         (rest) => rest.name === routerTag.name
       )
@@ -139,43 +142,33 @@ export default {
       })
     },
 
-    /** 菜单卡片操作 */
-    closeOtherstabs () {
-      this.activeRouteTag = this.activeRouteTag.filter(
-        (item, index) => item.name === this.tabActive || item.meta.clingy
-      )
+    /** 菜单卡片操作*/
+    closeOtherstabs(){
+      this.activeRouteTag =  this.activeRouteTag.filter((item,index)=>item.name === this.tabActive || item.meta.clingy )
     },
-    closeLefttabs () {
+    closeLefttabs(){
       let tagIndex = 0
-      this.activeRouteTag.forEach((item, index) => {
-        if (item.name === this.tabActive) {
-          tagIndex = index
-        }
-      })
-      this.activeRouteTag = this.activeRouteTag.filter(
-        (item, index) => tagIndex <= index || item.meta.clingy
-      )
+      this.activeRouteTag.forEach((item,index)=> {
+        if(item.name === this.tabActive)
+      {tagIndex = index}})
+      this.activeRouteTag = this.activeRouteTag.filter((item,index)=> tagIndex <= index || item.meta.clingy)
     },
-    closeRighttabs () {
+    closeRighttabs(){
       let tagIndex = 0
-      this.activeRouteTag.forEach((item, index) => {
-        if (item.name === this.tabActive) {
-          tagIndex = index
-        }
-      })
-      this.activeRouteTag = this.activeRouteTag.filter(
-        (item, index) => tagIndex >= index || item.meta.clingy
-      )
+      this.activeRouteTag.forEach((item,index)=> {
+        if(item.name === this.tabActive)
+      {tagIndex = index}})
+      this.activeRouteTag = this.activeRouteTag.filter((item,index)=> tagIndex >= index || item.meta.clingy)
     },
-    closeAlltabs () {
-      // 关闭，并跳转到固定页面，如果只有一
-      this.activeRouteTag = this.activeRouteTag.filter(
-        (item) => item.meta.clingy
-      )
+    closeAlltabs(){
+        // 关闭，并跳转到固定页面，如果只有一
+      this.activeRouteTag =  this.activeRouteTag.filter(item=> item.meta.clingy)
       this.tabActive = this.activeRouteTag[0].name
       // 设置延迟几秒跳转
       this.$router.push(this.activeRouteTag[0].path)
     }
+
+
   }
 }
 </script>

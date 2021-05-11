@@ -7,8 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "git": "start ./push.sh",
-    "koa": "node ./src/mock/nodeServers/app.js",
-    "prettier": "npx prettier --write ."
+    "koa": "node ./src/mock/nodeServers/app.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -30,7 +29,6 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -40,7 +38,6 @@
     "less-loader": "^5.0.0",
     "lint-staged": "^9.5.0",
     "mockjs": "^1.1.0",
-    "prettier": "2.2.1",
     "style-resources-loader": "^1.4.1",
     "svg-sprite-loader": "^6.0.6",
     "vue-template-compiler": "^2.6.11"
@@ -50,7 +47,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
-      "prettier --write",
+      "vue-cli-service lint",
       "git add"
     ]
   }

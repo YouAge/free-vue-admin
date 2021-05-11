@@ -3,8 +3,9 @@
  *@ 文件介绍:
  */
 
+
 import Vue from 'vue'
-import { localesConfigs } from './config'
+import {localesConfigs} from './config'
 
 let _i18n = null
 

@@ -1,12 +1,16 @@
 <!--github： https://github.com/YouAge-->
 <template>
-  <div> 菜单 </div>
+  <div>
+菜单
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'menus'
-}
+  export default {
+    name: 'menus',
+  }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
