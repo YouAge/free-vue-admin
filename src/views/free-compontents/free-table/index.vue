@@ -1,13 +1,18 @@
 <!--github： https://github.com/YouAge-->
 <template>
   <div>
-  table
+  <FTableBody></FTableBody>
   </div>
 </template>
 
 <script>
+
+import FTableBody from './table-body'
 export default {
-name: "freeTable"
+  name: "freeTable",
+  components:{
+    FTableBody
+  }
 }
 </script>
 

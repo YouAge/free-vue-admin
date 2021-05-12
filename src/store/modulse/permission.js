@@ -48,13 +48,12 @@ export default {
     async FETCH_PERMISSION({commit, state}, currentMenus) {
       // const newMenus = hierarchy(currentMenus)
       // 对比路由保留可用路由
-      console.log('路由', currentMenus)
+      // console.log('路由', currentMenus)
       const menus = recursionRouter(currentMenus, asyncRoutes)
       commit('SET_MENU', menus)
       menus.push(lastRoute)
-      console.log(menus)
+      // console.log(menus)
       router.addRoutes(menus) // 动态添加可访问路由表
-      // console.log(router)
     }
   }
 }

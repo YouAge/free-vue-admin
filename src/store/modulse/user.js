@@ -34,7 +34,7 @@ export default {
       commit('delToken')
       commit('permission/SET_MENU', [], {root: true})
       setRouterTag([])
-      console.log('退出')
+      // console.log('退出')
       location.reload()
     },
     login({commit}, userInfo) {
@@ -45,7 +45,7 @@ export default {
             commit('setToken', token)
             resolve()
           } else {
-            console.log('请求错误')
+            // console.log('请求错误')
             reject('错误')
           }
         })
@@ -58,7 +58,7 @@ export default {
         return false
       }
       // 处理数据
-      console.log(data)
+      // console.log(data)
       dispatch('permission/FETCH_PERMISSION', data.menus, {
         root: true
       })

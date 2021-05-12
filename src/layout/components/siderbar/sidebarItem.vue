@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     handleChildren (children = [], parent) {
-      /** 处理path 层级最后一断重复的问题, 还有层级关系， 和隐藏菜单 */
+      /** 处理path 层级最后一断重复的问题, 还有层级关系， 和隐藏菜单 TODO bug待修复 */
       if (children === null) children = []
       const showChildren = children.filter((item) => {
         if (item.meta.sidebar) {

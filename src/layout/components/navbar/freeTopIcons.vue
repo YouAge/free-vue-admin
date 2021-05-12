@@ -44,7 +44,7 @@ export default {
       }
     },
     switchoverLanguage () {
-      console.log(this.$i18n.locale)
+      // console.log(this.$i18n.locale)
 
       if (this.language === 'en') {
         this.$i18n.locale = 'zh'

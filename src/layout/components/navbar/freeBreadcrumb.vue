@@ -18,6 +18,7 @@ export default {
   watch: {
     /** 监听路径 */
     $route () {
+       console.log('导航',this.$route)
       this.list = this.getBreadcrumb()
     }
   },

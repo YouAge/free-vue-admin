@@ -10,11 +10,14 @@ export default {
   data:"userRoute",
   methods:{
 
-    dealRouter(item){
-      if(isExternal(item.path)){
-        window.open(item.path)
-      }else {
-        this.$router.push(item.path)
+    dealRouter({path,name,meta}){
+      if(isExternal(path)){
+        window.open(path)
+      }else if(meta.path){
+        this.$router.push({name:name,params:{path:meta.path}})
+      }
+      else {
+        this.$router.push(path)
       }
     }
 

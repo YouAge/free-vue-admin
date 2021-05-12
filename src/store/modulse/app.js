@@ -26,7 +26,7 @@ export default {
     },
     changeOldLayout: (state, oldLayout) => {
       state.oldLayout = oldLayout
-      console.log('修改后', state.oldLayout)
+      // console.log('修改后', state.oldLayout)
     },
     changeDevice: (state, device) => {
       state.device = device

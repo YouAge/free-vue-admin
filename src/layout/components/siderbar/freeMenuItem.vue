@@ -53,7 +53,7 @@ export default {
       if(!isExternal(this.basePath)){
         url = path.resolve(this.basePath, routePath)
       }
-      this.dealRouter({path:url})
+      this.dealRouter({path:url,name:this.routeChildren.name,meta:this.routeChildren.meta})
     }
   },
   mounted () {}

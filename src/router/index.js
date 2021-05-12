@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
       next({path: '/login'})
     }
   } else {
-    console.log(to.matched)
+    // console.log(to.matched)
     // 判断用户信息是否存在， 获取数据
     next()
     if (
@@ -47,7 +47,7 @@ router.beforeEach((to, from, next) => {
         next({...to, replace: true}) // 防止刷新 页面不存在
       })
     } else {
-      console.log('111', store.state.permission.sidebarMenu)
+      // console.log('111', store.state.permission.sidebarMenu)
       next()
     }
   }

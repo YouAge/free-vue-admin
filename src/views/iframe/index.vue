@@ -18,6 +18,7 @@ export default {
   watch:{
     $route: {
       handler (newRoute,oldRoute) {
+        console.log(newRoute)
         const { params, meta, path } = newRoute
          this.setIframeSrc(meta)
       },

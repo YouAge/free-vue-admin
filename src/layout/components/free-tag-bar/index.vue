@@ -95,7 +95,8 @@ export default {
       this.tabActive = item.name
       setRouterTag(this.activeRouteTag)
       // 跳转页面 TODO
-      this.dealRouter(item)
+      // this.dealRouter(item)
+      this.dealRouter({path:item.path,name:item.name,meta:item.meta})
       // this.$router.push({ path: item.path, query: { iframe: item.meta.path  }});
     },
     isClingy (tag) {

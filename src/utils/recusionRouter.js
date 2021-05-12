@@ -12,7 +12,7 @@ const fixedMenu = ['home', 'Home']
 export function recursionRouter(userRouter = [], allRouter = []) {
   let realRoutes = []
   allRouter.forEach((v, i) => {
-    console.log(fixedMenu.includes(v.name), v.name)
+    // console.log(fixedMenu.includes(v.name), v.name)
     if (fixedMenu.includes(v.name)) {
       realRoutes.push(v)
     }
@@ -23,7 +23,7 @@ export function recursionRouter(userRouter = [], allRouter = []) {
         }
         // v = updateMeta(item, v)
         realRoutes.push(v)
-        console.log(v)
+        // console.log(v)
       }
     })
   })
