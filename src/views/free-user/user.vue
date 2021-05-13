@@ -1,8 +1,7 @@
 <!--github： https://github.com/YouAge-->
 <template>
   <div class="user-content">
-    <el-cascader-panel options="" v-model="status" :props="config">
-    </el-cascader-panel>
+
   </div>
 </template>
 
@@ -16,19 +15,39 @@ export default {
         {value:'1',label:"测试一",children:[
             {value:'1-1',label:"测试1-1"},
             {value:'1-2',label:"测试1-1"},
-            {value:'1-3',label:"测试1-1"}
+            {value:'1-3',label:"测试1-1",children:[
+                {value:'1-3-1',label:"测试1-3-1"},
+              ]}
           ]},
         {value:'2',label:"测试一"},
         {value:'3',label:"测试一"}
       ],
       config:{
-        expandTrigger:'click'
+        expandTrigger:'hover'
       }
+    }
+  },
+  methods:{
+    select(item){
+      console.log(item)
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.free-panel{
+  width: 200px;
+  //background-color: #0e7dba;
+}
+::v-deep{
+  .el-cascader-menu{
+    background-color: #41B584;
+  }
+}
 
+
+.fre-test{
+  display: flex;
+}
 </style>

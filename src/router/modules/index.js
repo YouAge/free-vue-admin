@@ -46,7 +46,7 @@ export const asyncRoutes = [
       {
         path: 'home',
         name: 'Home',
-        component: () => import('@/views/Home'),
+        component: () => import('@/views/free-home/index'),
         meta: {
           icon: 'el-icon-s-home',
           title: 'm.home',
