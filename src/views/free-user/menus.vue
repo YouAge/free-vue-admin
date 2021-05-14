@@ -1,4 +1,5 @@
 <!--github： https://github.com/YouAge-->
+
 <template>
   <div class="menu-content">
 <!--    <div id="tst" style="height: 300px;width: 600px"></div>-->
@@ -123,6 +124,9 @@ import FEcharts from '@/components/free-echarts/src'
     methods:{
       echart(item){
         console.log(item)
+        item.on('click',function (item) {
+          console.log(item)
+        })
       }
     },
     mounted () {

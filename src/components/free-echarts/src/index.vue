@@ -1,6 +1,6 @@
 <!--github： https://github.com/YouAge-->
 <template>
-  <div :id="id" :class="className" :style="{height:`${height}vh`,width:`${width}vh`}" />
+  <div :id="id" :class="className" :style="{height:height,width:`${width}`}" />
 </template>
 
 <script>
@@ -19,11 +19,11 @@ export default {
     },
     width: {
       type: String,
-      default: 200
+      default: '200px'
     },
     height: {
       type: String,
-      default: 200
+      default: '100%'
     },
     options:{
       type:Object,

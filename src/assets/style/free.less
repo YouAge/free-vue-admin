@@ -6,6 +6,7 @@
 @import "./resources/recover.less";
 @import "./resources/variables.less";
 @import "./resources/utils.less";
+@import "./resources/element.less";
 
 .base-scrollbar (){
   &::-webkit-scrollbar {
@@ -43,7 +44,7 @@ html{
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: @base-font-size-default;
     color: #fff;
-    background: #f6f8f9;
+    background: #F0F2F5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -55,7 +56,9 @@ html{
         transition: none;
       }
       padding: @base-padding;
-      background-color: @base-color-white;
+      background: #F0F2F5;
+      //background-color: @base-color-white;
+      //background-color: #F0F2F5;
     }
   }
 }
