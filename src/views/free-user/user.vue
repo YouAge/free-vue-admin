@@ -26,8 +26,8 @@ export default {
         expandTrigger:'hover'
       },
       ws:'',
+      timeId:new Date().getTime(),
       content:{
-        timeId:new Date().getTime(),
         text:"这是一个消息"
       }
     }
@@ -38,6 +38,8 @@ export default {
     },
     wsSend(){
       console.log('发送消息')
+      this.content.uid = `${this.timeId}`
+      this.content.text = `发送来消息： ${new Date()}`
       this.ws.send( JSON.stringify(this.content))
     },
     message(evt){
@@ -52,9 +54,10 @@ export default {
 
   },
   mounted () {
-     this.ws = new WebSocket("ws://localhost:8997/web?id=23");
+     this.ws = new WebSocket(`ws://localhost:8997/web?id=${this.timeId}`);
      this.ws.onopen =()=>{
-       console.log('链接成功')
+       console.log('链接成功',JSON.stringify(this.content),this.content)
+       this.content.uid =  `${this.timeId}`
        this.ws.send(JSON.stringify(this.content))
      }
      this.ws.onmessage =this.message
