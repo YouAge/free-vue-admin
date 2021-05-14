@@ -1,9 +1,11 @@
 <!--github： https://github.com/YouAge-->
 <template>
-  <div :id="id" :class="className" :style="{height:height,width:width}" />
+  <div :id="id" :class="className" :style="{height:`${height}vh`,width:`${width}vh`}" />
 </template>
 
 <script>
+import echarts from '@/plugins/echtarts'
+
 export default {
   name: 'FEcharts',
   props: {
@@ -13,20 +15,31 @@ export default {
     },
     id: {
       type: String,
-      default: 'chart'
+      required: true
     },
     width: {
       type: String,
-      default: '200px'
+      default: 200
     },
     height: {
       type: String,
-      default: '200px'
+      default: 200
+    },
+    options:{
+      type:Object,
+      required: true
     }
   },
-  data(){
-
+  mounted () {
+    const lineRefDom = document.getElementById(this.id);
+    let brokenLine = echarts.init(lineRefDom);
+    brokenLine.setOption(this.options)
+    this.$emit('change',brokenLine)
+    window.addEventListener('resize', () => {
+      brokenLine.resize()
+    }) // 响应式
   }
+
 }
 </script>
 
