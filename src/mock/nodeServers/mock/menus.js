@@ -1,3 +1,10 @@
+/**
+ *@ github： https://github.com/YouAge
+ *@ 文件介绍:
+ */
+
+
+
 
 
 /** 公共显示 */
@@ -8,7 +15,7 @@ const free = {
     { name: 'table', title: '表格' },
     { name: 'video', title: '视频' },
     { name: 'map', title: '地图' },
-    ]
+  ]
 }
 
 const meun2 = [
