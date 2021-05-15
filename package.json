@@ -41,16 +41,21 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "^1.6.0",
     "mockjs": "^1.1.0",
+    "prettier": "^2.3.0",
     "style-resources-loader": "^1.4.1",
     "svg-sprite-loader": "^6.0.6",
-    "vue-template-compiler": "^2.6.11"
+    "terser-webpack-plugin": "^5.1.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^4.4.1"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,vue}": [
+    "sre/**/*.{js,jsx,vue}": [
+      "prettier --write",
       "vue-cli-service lint",
       "git add"
     ]

@@ -1,27 +1,19 @@
 <!--github： https://github.com/YouAge-->
 <template>
   <div class="user-content">
-    <el-button @click="wsSend">点击链接web</el-button>
+
+  <f-chart />
   </div>
 </template>
 
 <script>
+import FChart from '@/components/free-chart/src'
 export default {
   name: 'user',
+  components: { FChart },
   data(){
     return{
       status:true,
-      options:[
-        {value:'1',label:"测试一",children:[
-            {value:'1-1',label:"测试1-1"},
-            {value:'1-2',label:"测试1-1"},
-            {value:'1-3',label:"测试1-1",children:[
-                {value:'1-3-1',label:"测试1-3-1"},
-              ]}
-          ]},
-        {value:'2',label:"测试一"},
-        {value:'3',label:"测试一"}
-      ],
       config:{
         expandTrigger:'hover'
       },
